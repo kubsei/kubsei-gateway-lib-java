@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: Kubsei Gateway
+  description: |
+    Responses produced by kubsei-gateway itself, before a request reaches a service.
+    Routed APIs are described by their own contracts:
+      - users  (/api/auth/**, /api/users/**, /oauth2/**, /login/oauth2/**) -> kubsei-users-lib (openapi.yaml)
+      - editor (/graphql, /graphiql)                                       -> kubsei-editor-lib (graphql/schema.graphqls)
+  version: 0.1.0
+paths: {}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    Unauthorized:
+      $ref: "./openapi/responses/Unauthorized.yaml"
+    Forbidden:
+      $ref: "./openapi/responses/Forbidden.yaml"
+  schemas:
+    Problem:
+      $ref: "./openapi/schemas/Problem.yaml"

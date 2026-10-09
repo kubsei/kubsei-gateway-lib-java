@@ -1,0 +1,5 @@
+description: Missing, expired or invalid bearer token
+content:
+  application/problem+json:
+    schema:
+      $ref: "../schemas/Problem.yaml"
